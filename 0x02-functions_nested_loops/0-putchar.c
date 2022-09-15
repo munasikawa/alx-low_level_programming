@@ -2,9 +2,7 @@
 
 
 /**
- * main - entry point.
- *
- * Description: Prints _putchar with new line
+ * main - Prints _putchar with new line
  *
  * Returns: always 0
  */
@@ -21,5 +19,5 @@ int main(void)
 	_putchar('r');
 	_putchar('\n');
 
-	return(0);
+	return (0);
 }
