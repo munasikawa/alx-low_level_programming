@@ -5,11 +5,11 @@
  *
  *  Returns: Always 0
  */
-int print_alphabet(void)
+void print_alphabet(void)
 {
 	int i;
 
-	for (i = 97; i < 123; i++)
+	for (i = a; i < z; i++)
 	{
 		_putchar(i);
 	}
