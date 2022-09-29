@@ -2,7 +2,7 @@
 
 /**
  * prime_check - verify if s is the square root of c
- * s: param
+ * @s: param
  * @c: param
  *
  * Return: 1 or 0
