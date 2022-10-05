@@ -3,38 +3,46 @@
 #include <stdlib.h>
 
 /**
- *  alloc_grid - main function
- *  @width: int var
- *  @height: int var
+ * alloc_grid - main function
+ * 2 dimensional array of integers.
+ * @width: width oàf array
+ * @height: height of array
  *
- *  Return: int
+ * Return: pointer to the array
  */
 int **alloc_grid(int width, int height)
 {
-	int i, j;
-	int **p;
+	int **array;
+	int i = 0, j;
 
-	i = j = 0;
-	if (height < 1)
+	if (width == 0 || height == 0)
 		return (NULL);
-	p = (int **)malloc(height * sizeof(p));
-	if (p == NULL)
+	array = (int **) malloc(sizeof(int *) * height);
+	if (array != NULL)
 	{
-		free(p);
-		return (NULL);
-	}
-	for (i = 0; i < height; i++)
-	{
-		p[i] = malloc(width * sizeof(int));
-		if (p[i] == NULL)
+		for (; i < height; i++)
 		{
-			for (j = 0; j < i; j++)
-				free(p[j]);
-				free(p);
+			array[i] = (int *) malloc(sizeof(int) * width);
+			if (array[i] != NULL)
+			{
+				for (j = 0; j < width; j++)
+					array[i][j] = 0;
+			}
+			else
+			{
+				while (i >= 0)
+				{
+					free(array[i]);
+					i--;
+				}
+				free(array);
 				return (NULL);
+			}
 		}
-		for (j = 0; j < width; j++)
-			p[i][j] = 0;
+		return (array);
 	}
-	return (p);
+	else
+	{
+		return (NULL);
+	}
 }
