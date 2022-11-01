@@ -3,8 +3,8 @@
 /**
  * add_node_end - add new node to end list.
  * @head: The head of the list_t list.
- * @str: The string to be added to the list_t list.
- * Return: NULL on failure 
+ * @str: The string to be added to the list_t list
+ * Return: NULL on failure
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
