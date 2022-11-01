@@ -3,6 +3,7 @@
 /**
  * add_node - Adds new node at beginning of list
  * @head: The head of the list_t
+ * @str: The string to be added to the list_t list.
  * Return: NULL on failure
  */
 list_t *add_node(list_t **head, const char *str)
