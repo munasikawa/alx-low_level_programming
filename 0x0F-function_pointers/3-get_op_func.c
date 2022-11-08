@@ -1,59 +1,35 @@
 #include "3-calc.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
- * op_add - adds two numbers
- * @a: first number
- * @b: second number
- * Return: add
+ * get_op_func - check if a number is equal to 98
+ * @s: the integer to check
+ * Return: result
  */
-int op_add(int a, int b)
+int (*get_op_func(char *s))(int, int)
 {
-	return (a + b);
-}
+	op_t ops[] = {
+		{"+", op_add},
+		{"-", op_sub},
+		{"*", op_mul},
+		{"/", op_div},
+		{"%", op_mod},
+		{NULL, NULL}
+	};
+	int i;
 
-/**
- * op_sub - subtracts two numbers
- * @a: first number
- * @b: second number
- * Return: difference
- */
-int op_sub(int a, int b)
-{
-	return (a - b);
-}
-
-/**
- * op_mul - multiplies two numbers
- *
- * @a: first number
- * @b: second number
- * Return: multiplication
- */
-int op_mul(int a, int b)
-{
-	return (a * b);
-}
-
-/**
- * op_div - divides two numbers
- * @a: first number
- * @b: second number
- * Return: division
- */
-int op_div(int a, int b)
-{
-	return (a / b);
-}
-
-/**
- * op_mod - calculates the module of two numbers
- *
- * @a: first number
- * @b: second number
- * Return: the remainder of the division
- */
-int op_mod(int a, int b)
-{
-	return (a % b);
+	i = 0;
+	while (ops[i].op != NULL && ops[i].f != NULL)
+	{
+		if (strcmp((ops[i].op), s) == 0)
+			{
+				return (ops[i].f);
+			}
+		i++;
+	}
+	printf("Error\n");
+	exit(99);
+	return (0);
 }
